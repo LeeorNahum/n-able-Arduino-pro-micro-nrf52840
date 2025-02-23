@@ -1,3 +1,20 @@
+# Pro Micro nRF52840 Fork of n-able Arduino core
+
+This fork adds compatibility for the Pro Micro nRF52840 board to the n-able Arduino core. It works in conjunction with the [platform-n-able-pro-micro-nrf52840](https://github.com/LeeorNahum/platform-n-able-pro-micro-nrf52840) platform to provide full PlatformIO support for NimBLE on the Pro Micro nRF52840.
+
+## Updated Usage for Pro Micro nRF52840
+
+To use this framework with the Pro Micro nRF52840, configure your `platformio.ini` as follows:
+
+```ini
+[env:platform-n-able-pro-micro-nrf52840]
+platform = https://github.com/LeeorNahum/platform-n-able-pro-micro-nrf52840.git#master
+board = pro_micro_nrf52840
+framework = arduino
+
+board_bootloader = adafruit
+```
+
 # n-able Arduino core
 
 An Arduino Core for ARM based BLE boards supported by the NimBLE stack.

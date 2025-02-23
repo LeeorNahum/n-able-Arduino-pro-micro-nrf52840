@@ -797,6 +797,77 @@ feather52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.he
 feather52840.menu.bootloader.none.upload.maximum_size=1032192
 
 
+promicronrf52840.name=Pro Micro nRF52840
+
+promicronrf52840.vid.0=0x239A
+promicronrf52840.pid.0=0x8029
+promicronrf52840.vid.1=0x239A
+promicronrf52840.pid.1=0x0029
+promicronrf52840.vid.2=0x239A
+promicronrf52840.pid.2=0x002A
+promicronrf52840.vid.3=0x239A
+promicronrf52840.pid.3=0x802A
+
+promicronrf52840.upload.tool=openocd
+promicronrf52840.upload.target=nrf52
+promicronrf52840.upload.jlink_device=nRF52840_xxAA
+promicronrf52840.upload.use_1200bps_touch=true
+promicronrf52840.upload.wait_for_upload_port=true
+promicronrf52840.upload.maximum_size=978944
+
+promicronrf52840.bootloader.tool=openocd
+
+promicronrf52840.build.mcu=cortex-m4
+promicronrf52840.build.f_cpu=64000000
+promicronrf52840.build.board=NRF52840_FEATHER
+promicronrf52840.build.core=nRF5
+promicronrf52840.build.variant=feather_nrf52840_express
+promicronrf52840.build.variant_system_lib=
+promicronrf52840.build.usb_manufacturer="Adafruit"
+promicronrf52840.build.usb_product="Feather nRF52840 Express"
+promicronrf52840.build.vid=0x239A
+promicronrf52840.build.pid=0x8029
+promicronrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
+promicronrf52840.build.ldscript=nrf52840_xxaa.ld
+promicronrf52840.build.lfclk_flags=-DUSE_LFXO
+promicronrf52840.build.extra_flags=-DNRF52_SERIES -DNRF52840_XXAA {bootloader.flags} {build.flags.usb} -DCONFIG_NIMBLE_CPP_LOG_LEVEL={build.cpp_debug} {build.nimble_flags}
+promicronrf52840.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+
+promicronrf52840.menu.role.all=All
+promicronrf52840.menu.role.all.build.nimble_flags=
+promicronrf52840.menu.role.periph=Peripheral
+promicronrf52840.menu.role.periph.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED
+promicronrf52840.menu.role.adv=Advertiser
+promicronrf52840.menu.role.adv.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_OBSERVER_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED
+promicronrf52840.menu.role.scan=Scanner
+promicronrf52840.menu.role.scan.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_CENTRAL_DISABLED
+promicronrf52840.menu.role.central=Client
+promicronrf52840.menu.role.central.build.nimble_flags=-DCONFIG_BT_NIMBLE_ROLE_PERIPHERAL_DISABLED -DCONFIG_BT_NIMBLE_ROLE_BROADCASTER_DISABLED
+
+promicronrf52840.menu.cppDbgLvl.none=None
+promicronrf52840.menu.cppDbgLvl.none.build.cpp_debug=0
+promicronrf52840.menu.cppDbgLvl.error=Error
+promicronrf52840.menu.cppDbgLvl.error.build.cpp_debug=1
+promicronrf52840.menu.cppDbgLvl.warn=Warn
+promicronrf52840.menu.cppDbgLvl.warn.build.cpp_debug=2
+promicronrf52840.menu.cppDbgLvl.info=Info
+promicronrf52840.menu.cppDbgLvl.info.build.cpp_debug=3
+promicronrf52840.menu.cppDbgLvl.debug=Debug
+promicronrf52840.menu.cppDbgLvl.debug.build.cpp_debug=4
+
+promicronrf52840.menu.bootloader.adafruit=Adafruit (No softdevice)
+promicronrf52840.menu.bootloader.adafruit.bootloader.flags=-DUSE_ADA_BL
+promicronrf52840.menu.bootloader.adafruit.upload.tool=adafruit-nrfutil
+promicronrf52840.menu.bootloader.adafruit.upload.protocol=adafruit-nrfutil
+promicronrf52840.menu.bootloader.adafruit.build.ldscript=nrf52_xxaa_adabl.ld
+promicronrf52840.menu.bootloader.adafruit.build.dfu_pattern={adafruit-nrfutil.dfu_pattern}
+promicronrf52840.menu.bootloader.adafruit.build.bootloader.file=variants/{build.variant}/ada_bootloader.hex
+promicronrf52840.menu.bootloader.none=No bootloader
+promicronrf52840.menu.bootloader.none.bootloader.flags=
+promicronrf52840.menu.bootloader.none.build.bootloader.file=tools/none_bootloader.hex
+promicronrf52840.menu.bootloader.none.upload.maximum_size=1032192
+
+
 feather52840sense.name=Adafruit Feather nRF52840 Sense
 
 feather52840sense.vid.0=0x239A
