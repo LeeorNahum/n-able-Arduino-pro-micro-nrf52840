@@ -1,7 +1,7 @@
 {
-  "name": "framework-n-able-arduino",
-  "version": "0.2.0",
-  "description": "Arduino Wiring-based Framework for Arm BLE devices supported by the NimBLE stack",
+  "name": "framework-n-able-arduino-pro-micro-nrf52840",
+  "version": "1.0.0",
+  "description": "Arduino Wiring-based Framework for Pro Micro nRF52840 with NimBLE stack support",
   "keywords": [
     "framework",
     "Arduino",
@@ -13,6 +13,9 @@
   "license": "LGPL-2.1-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/h2zero/n-able-Arduino.git"
+    "url": "https://github.com/LeeorNahum/n-able-Arduino-pro-micro-nrf52840.git"
+  },
+  "dependencies": {
+    "framework-n-able-arduino-pro-micro-nrf52840": "file:"
   }
 }
