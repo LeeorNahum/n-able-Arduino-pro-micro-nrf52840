@@ -5,83 +5,66 @@
 
 const uint32_t g_ADigitalPinMap[] =
 {
-  // D0 .. D13
-  25,  // D0  is P0.25 (UART TX)
-  24,  // D1  is P0.24 (UART RX 
-  10,  // D2  is P0.10 (NFC2)
-  47,  // D3  is P1.15 (LED1)
-  42,  // D4  is P1.10 (LED2)
-  40,  // D5  is P1.08
-   7,  // D6  is P0.07
-  34,  // D7  is P1.02 (Button)
-  16,  // D8  is P0.16 (NeoPixel)
-  26,  // D9  is P0.26
-  27,  // D10 is P0.27
-   6,  // D11 is P0.06
-   8,  // D12 is P0.08
-  41,  // D13 is P1.09
+  // P0 pins
+  0,   // P0.00 (connected to 32.768kHz crystal)
+  1,   // P0.01 (connected to 32.768kHz crystal)
+  2,   // P0.02 (AIN0)
+  3,   // P0.03
+  4,   // P0.04 (AIN2, Battery)
+  5,   // P0.05 (SPI CS/SS)
+  6,   // P0.06 (UART RX)
+  7,   // P0.07
+  8,   // P0.08 (UART TX)
+  9,   // P0.09 (NFC1)
+  10,  // P0.10 (NFC2)
+  11,  // P0.11
+  12,  // P0.12
+  13,  // P0.13 (VCC control)
+  14,  // P0.14
+  15,  // P0.15 (LED)
+  16,  // P0.16
+  17,  // P0.17 (SDA)
+  18,  // P0.18 (RESET)
+  19,  // P0.19
+  20,  // P0.20 (SCL)
+  21,  // P0.21
+  22,  // P0.22 (SPI SCK)
+  23,  // P0.23
+  24,  // P0.24 (SPI SDO/MOSI)
+  25,  // P0.25
+  26,  // P0.26
+  27,  // P0.27
+  28,  // P0.28
+  29,  // P0.29 (AIN5)
+  30,  // P0.30
+  31,  // P0.31 (AIN7)
 
-  // D14 .. D21 (aka A0 .. A7)
-   4,  // D14 is P0.04 (A0)
-   5,  // D15 is P0.05 (A1)
-  30,  // D16 is P0.30 (A2)
-  28,  // D17 is P0.28 (A3)
-   2,  // D18 is P0.02 (A4)
-   3,  // D19 is P0.03 (A5)
-  29,  // D20 is P0.29 (A6, Battery)
-  31,  // D21 is P0.31 (A7, ARef)
-
-  // D22 .. D23 (aka I2C pins)
-  12,  // D22 is P0.12 (SDA)
-  11,  // D23 is P0.11 (SCL)
-
-  // D24 .. D26 (aka SPI pins)
-  15,  // D24 is P0.15 (SPI MISO)
-  13,  // D25 is P0.13 (SPI MOSI)
-  14,  // D26 is P0.14 (SPI SCK )
-
-  // QSPI pins (not exposed via any header / test point)
-  19,  // D27 is P0.19 (QSPI CLK)
-  20,  // D28 is P0.20 (QSPI CS)
-  17,  // D29 is P0.17 (QSPI Data 0)
-  22,  // D30 is P0.22 (QSPI Data 1)
-  23,  // D31 is P0.23 (QSPI Data 2)
-  21,  // D32 is P0.21 (QSPI Data 3)
-
-  // The remaining NFC pin
-   9,  // D33 is P0.09 (NFC1, exposed only via test point on bottom of board)
-
-  // Thus, there are 34 defined pins
-
-  // The remaining pins are not usable:
-  //
-  //
-  // The following pins were never listed as they were considered unusable
-  //  0,      // P0.00 is XL1   (attached to 32.768kHz crystal)
-  //  1,      // P0.01 is XL2   (attached to 32.768kHz crystal)
-  // 18,      // P0.18 is RESET (attached to switch)
-  // 32,      // P1.00 is SWO   (attached to debug header)
-  // 
-  // The remaining pins are not connected (per schematic)
-  // 33,      // P1.01 is not connected per schematic
-  // 35,      // P1.03 is not connected per schematic
-  // 36,      // P1.04 is not connected per schematic
-  // 37,      // P1.05 is not connected per schematic
-  // 38,      // P1.06 is not connected per schematic
-  // 39,      // P1.07 is not connected per schematic
-  // 43,      // P1.11 is not connected per schematic
-  // 44,      // P1.12 is not connected per schematic
-  // 45,      // P1.13 is not connected per schematic
-  // 46,      // P1.14 is not connected per schematic
+  // P1 pins
+  32,  // P1.00 (SPI SDI/MISO)
+  33,  // P1.01
+  34,  // P1.02 (Button)
+  35,  // P1.03
+  36,  // P1.04
+  37,  // P1.05
+  38,  // P1.06
+  39,  // P1.07
+  40,  // P1.08
+  41,  // P1.09
+  42,  // P1.10
+  43,  // P1.11
+  44,  // P1.12
+  45,  // P1.13
+  46,  // P1.14
+  47,  // P1.15
 };
 
 void initVariant()
 {
-  // LED1 & LED2
-  pinMode(PIN_LED1, OUTPUT);
-  ledOff(PIN_LED1);
-
-  pinMode(PIN_LED2, OUTPUT);
-  ledOff(PIN_LED2);
+  // LED
+  pinMode(PIN_LED, OUTPUT);
+  digitalWrite(PIN_LED, !LED_STATE_ON);
+  
+  // VCC control pin - default to enabled
+  pinMode(PIN_VCC_CONTROL, OUTPUT);
+  digitalWrite(PIN_VCC_CONTROL, LOW);
 }
-
