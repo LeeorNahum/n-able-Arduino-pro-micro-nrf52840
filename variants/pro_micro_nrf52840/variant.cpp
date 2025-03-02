@@ -66,5 +66,5 @@ void initVariant()
   
   // VCC control pin - default to enabled
   pinMode(PIN_VCC_CONTROL, OUTPUT);
-  digitalWrite(PIN_VCC_CONTROL, LOW);
+  digitalWrite(PIN_VCC_CONTROL, HIGH);
 }

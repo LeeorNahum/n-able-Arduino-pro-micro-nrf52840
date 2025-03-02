@@ -84,7 +84,7 @@ static const uint8_t SCK  = PIN_SPI_SCK;
 #define PIN_WIRE_SCL         (20) // P0_20
 
 // Power control
-#define PIN_VCC_CONTROL      (13) // P0_13 - VCC control pin (Shuts off the power to VCC when you set it to high; This saves on battery immensely for LEDs of all kinds that eat power even when off
+#define PIN_VCC_CONTROL      (13) // P0_13 - VCC control pin (Shuts off the power to VCC when you set it to low; This saves on battery immensely for LEDs of all kinds that eat power even when off
 
 #ifdef __cplusplus
 }
