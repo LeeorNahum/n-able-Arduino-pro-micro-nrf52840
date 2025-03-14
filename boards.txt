@@ -819,12 +819,12 @@ promicronrf52840.bootloader.tool=openocd
 
 promicronrf52840.build.mcu=cortex-m4
 promicronrf52840.build.f_cpu=64000000
-promicronrf52840.build.board=NRF52840_FEATHER
+promicronrf52840.build.board=NRF52840_DK
 promicronrf52840.build.core=nRF5
-promicronrf52840.build.variant=feather_nrf52840_express
+promicronrf52840.build.variant=pro_micro_nrf52840
 promicronrf52840.build.variant_system_lib=
 promicronrf52840.build.usb_manufacturer="Adafruit"
-promicronrf52840.build.usb_product="Feather nRF52840 Express"
+promicronrf52840.build.usb_product="Pro Micro nRF52840"
 promicronrf52840.build.vid=0x239A
 promicronrf52840.build.pid=0x8029
 promicronrf52840.build.float_flags=-mfloat-abi=hard -mfpu=fpv4-sp-d16
