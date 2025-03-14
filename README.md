@@ -4,6 +4,12 @@ This fork adds compatibility for the Pro Micro nRF52840 board to the n-able Ardu
 
 More of a board type than a unique board, It is based on Nice!Nano. Also referred to as Pro Micro, Promicro, SuperMini nRF52840 boards.
 
+## FastLED and I2C Compatibility Fixes
+
+This fork incorporates fixes from [sandeepmistry/arduino-nRF5](https://github.com/sandeepmistry/arduino-nRF5) that enable compatibility with FastLED and similar libraries that require nRF NVIC support. FastLED pin definitions for the nRF52840 can be found in the [fastpin_arm_nrf52_variants.h](https://github.com/FastLED/FastLED/blob/fdcb87acd05f858e55a16d0fe92bf25a39599d72/src/platforms/arm/nrf52/fastpin_arm_nrf52_variants.h#L658-L683) file.
+
+The Wire library has also been updated from sandeepmistry's implementation to fix issues when communicating with I2C devices like the BNO085 that violate the I2C protocol and don't work properly with the standard implementation.
+
 ## References
 - [Pro Micro nRF52840 — Zephyr Project Documentation](https://docs.zephyrproject.org/latest/boards/others/promicro_nrf52840/doc/index.html)
 - [Pro Micro Alternatives Wiki](https://github.com/joric/nrfmicro/wiki/Alternatives#supermini-nrf52840)
@@ -23,6 +29,11 @@ framework = arduino
 lib_deps =
   https://github.com/h2zero/NimBLE-Arduino.git#master
 ```
+
+---
+
+> [!NOTE]
+> Fork-specific modifications and documentation end here. Original n-able Arduino core documentation follows.
 
 # n-able Arduino core
 
